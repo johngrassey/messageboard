@@ -6,8 +6,11 @@
       <li>
         <%= message.text %>, Posted by <%= message.user %> on <%= message.added
         %>
+        <a href="/message/<%= message.id %>">View Message</a>
       </li>
       <% }) %>
     </ul>
+
+    <a href="/new">Post A New Message</a>
   </body>
 </html>
