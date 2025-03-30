@@ -1,7 +1,8 @@
 <html>
   <body>
     <h1>Hello World</h1>
-    <p>This is <%= messageId %></p>
+    <p><%= message.text %></p>
+    <p>Posted by <%= message.user %> on <%= message.added %></p>
     <a href="/"><button>Back</button></a>
   </body>
 </html>

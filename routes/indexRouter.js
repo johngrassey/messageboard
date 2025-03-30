@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const crypto = require("crypto");
 
 const messages = [
   {
@@ -38,3 +39,4 @@ indexRouter.post("/new", (req, res) => {
 });
 
 module.exports = indexRouter;
+module.exports.messages = messages;
