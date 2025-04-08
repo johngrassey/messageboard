@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const appRouter = require("./routes/appRouter");
 app.use(express.urlencoded({ extended: true }));
 const path = require("node:path");
 require("dotenv").config();
