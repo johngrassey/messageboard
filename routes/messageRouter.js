@@ -3,7 +3,6 @@ const indexRouter = require("./indexRouter");
 const messageController = require("../controllers/messageController");
 
 const messageRouter = Router();
-const messages = indexRouter.messages;
 
 messageRouter.get("/:messageId", messageController.getMessageById);
 
