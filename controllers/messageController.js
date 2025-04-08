@@ -20,11 +20,23 @@ async function addMessage(req, res) {
     res.status(500).send("Internal Server Error");
   }
 }
-// indexRouter.get("/", (req, res) =>
-//   res.render("index", { title: "Mini Messageboard", messages: messages })
-// );
+
+async function getMessageById(req, res) {
+  try {
+    const messageId = req.params.messageId;
+    const message = await db.getMessageById(messageId);
+    if (!message) {
+      return res.status(404).render("404");
+    }
+    res.render("message", { message: message });
+  } catch (error) {
+    console.error("Error fetching message:", error);
+    res.status(500).send("Internal Server Error");
+  }
+}
 
 module.exports = {
   getAllMessages,
   addMessage,
+  getMessageById,
 };
