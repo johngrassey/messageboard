@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const crypto = require("crypto");
+const messageController = require("../controllers/messageController");
 
 const messages = [
   {
@@ -24,19 +25,8 @@ const messages = [
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) =>
-  res.render("index", { title: "Mini Messageboard", messages: messages })
-);
-
-indexRouter.post("/new", (req, res) => {
-  messages.push({
-    text: req.body.text,
-    user: req.body.user,
-    added: new Date(),
-    id: crypto.randomUUID(),
-  });
-  res.redirect("/");
-});
+indexRouter.get("/", messageController.getAllMessages);
+indexRouter.post("/new", messageController.addMessage);
 
 module.exports = indexRouter;
 module.exports.messages = messages;

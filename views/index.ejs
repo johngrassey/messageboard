@@ -4,8 +4,8 @@
     <ul>
       <% messages.map((message) => { %>
       <li>
-        <%= message.text %>, Posted by <%= message.user %> on <%= message.added
-        %>
+        <%= message.text %>, Posted by <%= message.username %> on <%=
+        message.added %>
         <a href="/message/<%= message.id %>">View Message</a>
       </li>
       <% }) %>
