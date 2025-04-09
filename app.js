@@ -11,11 +11,14 @@ const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
 const messageRouter = require("./routes/messageRouter");
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
 app.use("/", indexRouter);
 app.use("/new", newRouter);
 app.use("/message", messageRouter);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Express app is listening on port ${PORT}!`);
 });
