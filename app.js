@@ -31,13 +31,6 @@ try {
   console.error("Error loading routes:", error);
 }
 
-app.get("/health", (req, res) => {
-  res.status(200).send("OK");
-});
-app.use("/", indexRouter);
-app.use("/new", newRouter);
-app.use("/message", messageRouter);
-
 app.use((err, req, res, next) => {
   console.error("Application error:", err);
   res.status(500).send("Something went wrong");
